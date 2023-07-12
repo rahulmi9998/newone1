@@ -5,20 +5,17 @@ class Manipulate {
         int n = arr.length;
         String str="";
         for (int i = 0; i < n; i++) {
-            if (arr[i].length() <= 2) {
-                arr[i] = "";
+            if (arr[i].length() <= 2)
+            {
             }
-        }
-        for(int i=0;i<n;i++){
-            if(arr[i].length()>1){
+            else{
                 if(i%2==0){
-                    str=str+arr[i].toUpperCase()+"";
+                    str=str+arr[i].toUpperCase()+" ";
                 }
                 else
-                    str=str+arr[i]+ " ";
+                    str=str+arr[i].toLowerCase()+" ";
             }
         }
-
         return str;
 
     }
