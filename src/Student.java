@@ -6,10 +6,10 @@ class Student {
     int marks;
     int age;
 
-    public Student( String name, int marks,int age) {
+    public Student(String name, int marks, int age) {
         this.name = name;
         this.marks = marks;
-        this.age=age;
+        this.age = age;
 
     }
 
@@ -34,7 +34,8 @@ class Sortbyname implements Comparator<Student> {
         return a.name.compareTo(b.name);
     }
 }
-class SortbyMarks implements Comparator<Student>{
+
+class SortbyMarks implements Comparator<Student> {
     public int compare(Student a, Student b) {
 
         return a.marks - b.marks;
@@ -45,33 +46,48 @@ class GFG {
 
     public static void main(String[] args) {
         ArrayList<Student> ar = new ArrayList<Student>();
-        ar.add(new Student( "Mayank", 99,21));
-        ar.add(new Student( "Anshul", 43,24));
-        ar.add(new Student( "Solanki", 24,29));
-        ar.add(new Student("Aggarwal", 100,31));
+        ar.add(new Student("Mayank", 99, 21));
+        ar.add(new Student("Anshul", 43, 24));
+        ar.add(new Student("Solanki", 24, 29));
+        ar.add(new Student("Aggarwal", 100, 31));
 
-        System.out.println("Unsorted");
+        Scanner s = new Scanner(System.in);
+        System.out.println("if you want to sort based of name press: 1");
+        System.out.println("if you want to sort based on marks press: 2");
+        System.out.println("if you want to sort based on age press: 3");
+        int x = s.nextInt();
 
-        // Iterating over entries to print them
-        for (int i = 0; i < ar.size(); i++)
-            System.out.println(ar.get(i));
-        // Sorting student entries by roll number
-        Collections.sort(ar, new Sortbyage());
+        switch (x) {
+            case 1:
 
-        // Display message on console for better readability
-        System.out.println("\nSorted by age");
+                Collections.sort(ar, new Sortbyname());
+                System.out.println("\nSorted by name");
+                for (int i = 0; i < ar.size(); i++)
+                    System.out.println(ar.get(i));
 
-        for (int i = 0; i < ar.size(); i++)
-            System.out.println(ar.get(i));
-        Collections.sort(ar, new Sortbyname());
-        System.out.println("\nSorted by name");
-        for (int i = 0; i < ar.size(); i++)
-            System.out.println(ar.get(i));
-        Collections.sort(ar,new SortbyMarks());
-        System.out.println("\n sort by marks");
-        for(int i=0;i<ar.size();i++){
-            System.out.println(ar.get(i));
+                break;
+            case 2:
+                Collections.sort(ar, new SortbyMarks());
+                System.out.println("\n sort by marks");
+                for (int i = 0; i < ar.size(); i++) {
+                    System.out.println(ar.get(i));
+                }
+                break;
+            case 3:
+                Collections.sort(ar, new Sortbyage());
+
+                System.out.println("\nSorted by age");
+
+                for (int i = 0; i < ar.size(); i++)
+                    System.out.println(ar.get(i));
+                break;
+            default:
+                System.out.println("choose the right number");
+
         }
     }
 }
+//System.out.println("if you want output in ascending order press: 1");
+//        System.out.println("if you want output in deasceding order press: 2");
+//
 
