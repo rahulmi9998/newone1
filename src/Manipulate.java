@@ -19,6 +19,7 @@ class Manipulate {
         return str;
 
     }
+
     public static void main(String[] args) {
         String str="my name is rahul mittal";
         String[] arr=str.split(" ");
