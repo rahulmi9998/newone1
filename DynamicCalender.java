@@ -3,7 +3,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-class calenderjava {
+class DynamicCalender {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -25,7 +25,9 @@ class calenderjava {
             }
 
         }
-        String[] days={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+        System.out.println("enter the value from where you want to start you calender");
+        String dday=s.nextLine();
+        String[] days={"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
         String[] month={"","January","February","March","April","May","June","July","August","September","October","November","December"};
 
         int[] dayinmonth={0,31,28,31,30,31,30,31,31,30,31,30,31};
@@ -36,12 +38,21 @@ class calenderjava {
             }
         }
         else
-         max=dayinmonth[m];
+            max=dayinmonth[m];
+        int start;
+        for(int i=0;i<days.length();i++){
+            if(days[i].euals(dday)){
+                start=i;
+                break;
+
+            }
+        }
+        System.out.println(start);
         LocalDate  ld=LocalDate.of(y,m,01);
         java.time.DayOfWeek dow=ld.getDayOfWeek();
         int n= dow.getValue();
         System.out.println(month[m]+" "+y);
-        System.out.println("sun "+"mon "+"tue "+"wed "+"thu "+"fri "+"sat ");
+
         if(n!=7) {
             for (int i = 1; i <= n; i++) {
                 System.out.print("    ");
