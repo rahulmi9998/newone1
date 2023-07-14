@@ -64,6 +64,10 @@ class dynamiccal {
                 System.out.print("    ");
             }
         }
+        if(n==7){
+            n=0;
+            dday=0;
+        }
 
         for(int i=1;i<=max;i++)
         {
